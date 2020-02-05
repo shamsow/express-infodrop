@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  div.container.pt-5.mt-4
+    h1.display-4 Welcome to #{title}
+    p.lead Drop all your info to get them as a PDF!
+    p The intended purpose for this app is to make stamps that can be printed out and glued to packages
+  div.container.mt-4.bg-light.p-4.rounded
+    form(action="/", method="post")
+      div.form-group
+        label(for="title") Title (Optional)
+        input(type="text", class="form-control", id="title", name="title", maxlength="20", placeholder="For ex: Destination or Mail to")
+      div.form-row
+        div.form-group.col-md-6
+          label(for="first") First Name
+          input(type="text", class="form-control", id="first", name="firstName", placeholder="John", required)
+        div.form-group.col-md-6
+          label(for="last") Last Name
+          input(type="text", class="form-control", id="last", name="lastName", placeholder="Doe", required)
+      div.form-group
+        label(for="address") Address
+        input(type="text", class="form-control", id="address", name="address1", placeholder="Street Address", required)
+      div.form-row
+        div.form-group.col-md-4
+          label(for="city") City
+          input(type="text", class="form-control", id="city", name="city", required)
+        div.form-group.col-md-6
+          label(for="country") Country
+          input(type="text", class="form-control", id="country", name="country", required)
+        div.from-group.col-md-2
+          label(for="zip") Zip
+          input(type="text", class="form-control", id="zip", name="zip", required)
+      button(class="btn btn-dark") Get PDF
